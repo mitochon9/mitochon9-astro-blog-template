@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry, CollectionKey } from "astro:content";
-import { formatDate } from "@/lib/formatDate";
+import { formatDate } from "@/libs/utils/formatDate";
 import { Card } from "../ui/card";
 
 interface Props {
-	post: CollectionEntry<CollectionKey>;
+  post: CollectionEntry<CollectionKey>;
 }
 
 const { post } = Astro.props;

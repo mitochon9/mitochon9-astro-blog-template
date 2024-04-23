@@ -1,12 +1,12 @@
 ---
-import { checkActivePath } from "@/lib/checkActivePath";
-import type { NavItem } from "@/lib/types/navItem";
-import { cn } from "@/lib/utils";
+import { checkActivePath } from "@/libs/utils/checkActivePath";
+import type { NavItem } from "@/libs/types/navItem";
+import { cn } from "@/libs/utils";
 import CtaButton from "../common/CtaButton.astro";
 import { buttonVariants } from "../ui/button";
 
 type Props = {
-	navItems: NavItem[];
+  navItems: NavItem[];
 };
 
 const { navItems } = Astro.props;
