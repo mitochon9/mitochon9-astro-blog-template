@@ -1,0 +1,38 @@
+---
+import { checkActivePath } from "@/lib/checkActivePath";
+import type { NavItem } from "@/lib/types/navItem";
+import { cn } from "@/lib/utils";
+import CtaButton from "../common/CtaButton.astro";
+import { buttonVariants } from "../ui/button";
+
+type Props = {
+	navItems: NavItem[];
+};
+
+const { navItems } = Astro.props;
+const { pathname } = Astro.url;
+---
+
+<div class="gap-2 hidden sm:flex">
+  <nav>
+    <ul class="flex gap-2">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class={cn(
+                buttonVariants({ variant: "ghost", size: "sm" }),
+                checkActivePath(item.href, pathname) && "bg-muted"
+              )}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <CtaButton />
+</div>

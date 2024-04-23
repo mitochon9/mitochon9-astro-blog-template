@@ -1,0 +1,27 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import BaseFooter from "@/components/layouts/BaseFooter.astro";
+import BaseHeader from "@/components/layouts/BaseHeader.astro";
+import { cn } from "@/lib/utils";
+
+interface Props {
+	title: string;
+	className?: string;
+}
+
+const { title, className } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead title={title} />
+  </head>
+  <body>
+    <BaseHeader />
+    <main class={cn("min-h-[calc(100vh-64px-160px)]", className)}>
+      <slot />
+    </main>
+    <BaseFooter />
+  </body>
+</html>

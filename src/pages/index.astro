@@ -1,0 +1,21 @@
+---
+import InnerLayout from "@/components/layouts/InnerLayout.astro";
+import OuterLayout from "@/components/layouts/OuterLayout.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <OuterLayout>
+    <h1 class="text-2xl sm:text-4xl font-bold text-center">
+      Welcome to mitochon9<br />astro blog starter.
+    </h1>
+    <InnerLayout className="mt-4 sm:mt-10">
+      <p class="max-w-2xl mx-auto">
+        This is a simple blog starter template for Astro.<br />
+        It includes a blog index page, a blog post page, and a layout component.<br
+        />
+        It also includes a configuration file for setting the site title and description.
+      </p>
+    </InnerLayout>
+  </OuterLayout>
+</Layout>

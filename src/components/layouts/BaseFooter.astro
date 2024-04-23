@@ -1,0 +1,36 @@
+---
+import { SITE_TITLE } from "@/consts";
+import type { NavItem } from "@/lib/types/navItem";
+import InnerLayout from "./InnerLayout.astro";
+
+const navItems: NavItem[] = [
+	{ href: "/posts", label: "Posts" },
+	{ href: "/about", label: "About" },
+];
+---
+
+<footer class="bg-primary py-10 text-white">
+  <InnerLayout>
+    <div class="flex justify-between items-center">
+      <a href="/"> Hello World!! </a>
+
+      <nav>
+        <ul class="flex items-center gap-2">
+          {
+            navItems.map((item) => (
+              <li>
+                <a href={item.href} class="px-2 py-2 rounded hover:text-muted">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+
+    <small class="mt-10 flex justify-center text-center">
+      &copy;2024- {SITE_TITLE}
+    </small>
+  </InnerLayout>
+</footer>

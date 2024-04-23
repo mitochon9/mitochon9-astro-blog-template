@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry, CollectionKey } from "astro:content";
+import { formatDate } from "@/lib/formatDate";
+import { Card } from "../ui/card";
+
+interface Props {
+	post: CollectionEntry<CollectionKey>;
+}
+
+const { post } = Astro.props;
+---
+
+<Card className="flex flex-col h-full max-w-sm mx-auto">
+  <a href={`/posts/${post.id}`}>
+    <Image
+      src={post.data.image.url}
+      alt={post.data.image.alt}
+      width={320}
+      height={240}
+      class="object-cover rounded-t-md w-96 aspect-video"
+      sizes={`
+  (min-width: 1024px) 320px,
+  (min-width: 768px) 50vw,
+  100vw
+`}
+    />
+  </a>
+  <div class="p-1 sm:p-2 flex flex-col justify-between h-full">
+    <a href={`/posts/${post.id}`} class="text-xs sm:text-sm">
+      {post.data.title}
+    </a>
+    <div>
+      <hr class="decoration-underline-thin my-2" />
+      <p class="text-xs text-right">
+        {formatDate(post.data.pubDate)}
+      </p>
+    </div>
+  </div>
+</Card>

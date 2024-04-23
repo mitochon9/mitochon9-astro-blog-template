@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import InnerLayout from "@/components/layouts/InnerLayout.astro";
+import OuterLayout from "@/components/layouts/OuterLayout.astro";
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+	const postEntries = await getCollection("posts");
+	return postEntries.map((post) => ({
+		params: { postId: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title}>
+  <OuterLayout>
+    <InnerLayout>
+      <article class="prose mx-auto">
+        <Content />
+      </article>
+    </InnerLayout>
+  </OuterLayout>
+</Layout>
