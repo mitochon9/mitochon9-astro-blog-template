@@ -2,11 +2,11 @@
 import BaseHead from "@/components/BaseHead.astro";
 import BaseFooter from "@/components/layouts/BaseFooter.astro";
 import BaseHeader from "@/components/layouts/BaseHeader.astro";
-import { cn } from "@/lib/utils";
+import { cn } from "@/libs/utils";
 
 interface Props {
-	title: string;
-	className?: string;
+  title: string;
+  className?: string;
 }
 
 const { title, className } = Astro.props;
