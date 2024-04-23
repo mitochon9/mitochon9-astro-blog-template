@@ -1,0 +1,22 @@
+---
+import InnerLayout from "@/components/layouts/InnerLayout.astro";
+import OuterLayout from "@/components/layouts/OuterLayout.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="ページが見つかりませんでした">
+  <OuterLayout>
+    <InnerLayout>
+      <p class="text-base font-semibold leading-8 text-primary">404</p>
+      <h1 class="title-tertiary">Page not found</h1>
+      <p class="mt-6 text-base leading-7 text-gray-600">
+        お探しのページは見つかりませんでした。
+      </p>
+      <div class="mt-10">
+        <a href="/" class="text-sm font-semibold leading-7 text-primary">
+          <span aria-hidden="true">&larr;</span> ホームに戻る
+        </a>
+      </div>
+    </InnerLayout>
+  </OuterLayout>
+</Layout>
